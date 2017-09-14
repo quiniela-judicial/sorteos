@@ -1,0 +1,16 @@
+<!--The whole content below can be removed with the new code.-->
+<div style="text-align:center" id="main-wrapper">
+  <div class="btn-nav-1" (click)="goToPage('page-1')"  (pageScrollFinish)="doSmth($event)"> INTRO</div>
+  <div class="btn-nav-2" (click)="goToPage('page-2')"  (pageScrollFinish)="doSmth($event)"> RESULTADOS</div>
+  <div class="page" id="page-1"> </div>
+  <div class="page" id="page-2">
+    <canvas baseChart
+    [datasets]="lineChartData"
+    [labels]="lineChartLabels"
+    [options]="lineChartOptions"
+    [colors]="lineChartColors"
+    [legend]="lineChartLegend"
+    [chartType]="lineChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"></canvas>
+</div>

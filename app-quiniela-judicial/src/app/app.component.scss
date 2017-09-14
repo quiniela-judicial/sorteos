@@ -1,0 +1,29 @@
+
+#main-wrapper {
+ height: calc(100vh * 2 - 50px);
+ .btn-nav-1 {
+  position: fixed;
+  top: 10px;
+  right: 120px;
+  cursor: pointer;
+ }
+ .btn-nav-2 {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+ }
+ .page {
+  height: 100vh;
+  background: #eee;
+
+ }
+ #page-1 {
+  background: url(../images/quiniela-judicial.svg) no-repeat center center;
+ }
+  #page-2 {
+
+  }
+
+
+}
