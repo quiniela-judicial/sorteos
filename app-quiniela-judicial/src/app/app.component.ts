@@ -1,4 +1,4 @@
-import { Component, Inject, ViewChild, ElementRef } from '@angular/core';
+import { Component, Inject, ViewChild, ElementRef , OnInit} from '@angular/core';
 import { DOCUMENT} from '@angular/common';
 import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-page-scroll';
 @Component({
@@ -7,11 +7,15 @@ import { PageScrollConfig, PageScrollService, PageScrollInstance } from 'ng2-pag
   styleUrls: ['./app.component.scss'],
   
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   @ViewChild('container')
    private container: ElementRef;
-
-  
+   show1 = false;
+   show2 = false;
+   show3 = false;
+   show4 = false;
+   show5 = false;
+   show6 = false;
   constructor(private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any) {
     PageScrollConfig.defaultEasingLogic = {
         ease: (t: number, b: number, c: number, d: number): number => {
@@ -22,6 +26,27 @@ export class AppComponent {
             return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
         }
     };
+  }
+  ngOnInit() {
+    setTimeout(() => {
+      this.show1 = true;
+    }, 100)
+    setTimeout(() => {
+      this.show2 = true;
+    }, 700)
+    setTimeout(() => {
+      this.show3 = true;
+    }, 1000)
+    setTimeout(() => {
+      this.show4 = true;
+    }, 2300)
+    setTimeout(() => {
+      this.show5 = true;
+    }, 2600)
+     setTimeout(() => {
+      this.show6 = true;
+    }, 4000)
+
   }
   goToPage(page) {
     console.log(page);
