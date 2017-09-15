@@ -1,6 +1,9 @@
 pages:
+  stage: deploy
   script:
-  - echo "nada"
+  - mkdir .public
+  - cp -r app-quiniela-judicial/dist/ .public
+  - mv .public public
   artifacts:
     paths:
-    - app-quiniela-judicial/dist/
+    - public
