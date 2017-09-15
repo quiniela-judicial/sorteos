@@ -1,0 +1,10 @@
+Si te falta algo, intenta:
+
+pip install beautifulsoup4
+pip install Unidecode
+pip install pandas
+
+Se partio el problema en 4 (con saltos de a 500), simplemente tirar cada script en una terminal separada.
+No deberia tardar mas de 2h cada uno.
+Si se rompe el codigo, cambiar la linea 13 (start_line) por la ultima que se ha hecho).
+
