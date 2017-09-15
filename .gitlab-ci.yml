@@ -1,0 +1,9 @@
+image: npm
+
+pages:
+  script:
+  - cd app-quiniela-judicial
+  - npm install
+  artifacts:
+    paths:
+    - app-quiniela-judicial/www/
