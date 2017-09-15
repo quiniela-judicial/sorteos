@@ -2,8 +2,7 @@ image: node:4.2.6
 
 pages:
   script:
-  - cd app-quiniela-judicial
-  - npm install
+  - echo "nada"
   artifacts:
     paths:
-    - app-quiniela-judicial/www/
+    - app-quiniela-judicial/dist/
