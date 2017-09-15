@@ -33,10 +33,10 @@ export class AppComponent implements OnInit {
     }, 100)
     setTimeout(() => {
       this.show2 = true;
-    }, 700)
+    }, 500)
     setTimeout(() => {
       this.show3 = true;
-    }, 1000)
+    }, 700)
     setTimeout(() => {
       this.show4 = true;
     }, 2300)
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
     }, 2600)
      setTimeout(() => {
       this.show6 = true;
-    }, 4000)
+    }, 3000)
 
   }
   goToPage(page) {

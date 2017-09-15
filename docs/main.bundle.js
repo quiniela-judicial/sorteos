@@ -16,7 +16,7 @@ webpackEmptyContext.id = "../../../../../src async recursive";
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The whole content below can be removed with the new code.-->\n<div style=\"text-align:center\" id=\"main-wrapper\">\n  <div class=\"page\" id=\"page-1\">\n    <div class=\"page-wrapper\">\n      <div id=\"logo\"><img src=\"assets/images/quiniela-judicial.svg\" style=\"width: 100%;\"></div>\n        <div class=\"text\">\n          <p class=\"title\">\n            <b>¿Sabías que …</b>\n          </p>\n          <p>\n           <b> las causas judiciales se adjudican a los jueces por sorteo?</b>\n          </p>\n          <p>\n            Esto implica que la distribución de causas en jueces debería ser uniforme. ¿Es realmente así? ¿Cambia la distribución cuando hay distintos partidos políticos en el poder? ¿Y cuando se trata de causas de corrupción?\n          </p>\n          <p>\n            Ahora podemos saberlo, utilizando los datos de los sorteos de causas que publicó el Centro de Información Judicial (<a href=\"www.cij.gov.ar\" target=\"_new\">www.cij.gov.ar</a>). <br><br><br><a class=\"btn-nav-2 button\" (click)=\"goToPage('page-2')\"  (pageScrollFinish)=\"doSmth($event)\">Acá están los resultados preliminares</a>\n          </p>\n        </div>\n    </div>\n  </div>\n  <div class=\"page\" id=\"page-2\">\n  <canvas baseChart\n          [datasets]=\"barChartData\"\n          [labels]=\"barChartLabels\"\n          [options]=\"barChartOptions\"\n          [legend]=\"barChartLegend\"\n          [chartType]=\"barChartType\"\n          (chartHover)=\"chartHovered($event)\"\n          (chartClick)=\"chartClicked($event)\"></canvas>\n</div>\n"
+module.exports = "<!--The whole content below can be removed with the new code.-->\n<div style=\"text-align:center\" id=\"main-wrapper\">\n  <div class=\"page\" id=\"page-1\">\n    <div class=\"page-wrapper\">\n      <div id=\"logo\" class='item' [ngClass]=\"{'show': show1}\"><img src=\"assets/images/quiniela-judicial.svg\" style=\"width: 100%;\"></div>\n        <div class=\"text \">\n          <p class=\"title item\" [ngClass]=\"{'show': show2}\">\n            <b>¿Sabías que …</b>\n          </p>\n          <p class=\"item\" [ngClass]=\"{'show': show3}\">\n           <b> las causas judiciales se adjudican a los jueces por sorteo?</b>\n          </p>\n          <p class=\"item\" [ngClass]=\"{'show': show4}\">\n            Esto implica que la distribución de causas en jueces debería ser uniforme. ¿Es realmente así? ¿Cambia la distribución cuando hay distintos partidos políticos en el poder? ¿Y cuando se trata de causas de corrupción?\n          </p>\n          <p class=\"item\" [ngClass]=\"{'show': show5}\">\n            Ahora podemos saberlo, utilizando los datos de los sorteos de causas que publicó el Centro de Información Judicial (<a href=\"www.cij.gov.ar\" target=\"_new\">www.cij.gov.ar</a>). <br><br><br><a class=\"btn-nav-2 button item\" (click)=\"goToPage('page-2')\"  (pageScrollFinish)=\"doSmth($event)\" [ngClass]=\"{'show': show6}\">Acá están los resultados preliminares</a>\n          </p>\n        </div>\n    </div>\n  </div>\n  <div class=\"page\" id=\"page-2\">\n  <canvas baseChart\n          [datasets]=\"barChartData\"\n          [labels]=\"barChartLabels\"\n          [options]=\"barChartOptions\"\n          [legend]=\"barChartLegend\"\n          [chartType]=\"barChartType\"\n          (chartHover)=\"chartHovered($event)\"\n          (chartClick)=\"chartClicked($event)\"></canvas>\n</div>\n"
 
 /***/ }),
 
@@ -28,7 +28,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#main-wrapper {\n  height: calc(100vh * 2 - 50px); }\n  #main-wrapper .btn-nav-2 {\n    cursor: pointer; }\n  #main-wrapper .page {\n    height: 100vh;\n    background: #eee; }\n  #main-wrapper .page-wrapper {\n    width: 600px;\n    position: absolute;\n    margin: auto;\n    top: 50%;\n    margin-top: -285px;\n    left: 50%;\n    margin-left: -300px; }\n    #main-wrapper .page-wrapper #logo {\n      width: 400px;\n      position: relative;\n      margin: auto;\n      padding-top: 50px; }\n    #main-wrapper .page-wrapper .text {\n      font-size: 18px;\n      text-align: center;\n      position: relative; }\n      #main-wrapper .page-wrapper .text .title {\n        font-size: 28px; }\n\n.button {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  border-radius: 0;\n  border-style: solid;\n  border-width: 0;\n  cursor: pointer;\n  font-family: \"Helvetica Neue\", \"Helvetica\", Helvetica, Arial, sans-serif !important;\n  font-weight: normal;\n  line-height: normal;\n  margin: 0 0 1.11111rem;\n  position: relative;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  padding: 0.88889rem 1.77778rem 0.94444rem 1.77778rem;\n  font-size: 0.88889rem;\n  background-color: #008CBA;\n  border-color: #007095;\n  color: #FFFFFF;\n  transition: background-color 300ms ease-out; }\n", ""]);
+exports.push([module.i, "#main-wrapper {\n  height: calc(100vh * 2 - 50px); }\n  #main-wrapper .btn-nav-2 {\n    cursor: pointer; }\n  #main-wrapper .page {\n    height: 100vh;\n    background: #eee; }\n  #main-wrapper .page-wrapper {\n    width: 600px;\n    position: absolute;\n    margin: auto;\n    top: 50%;\n    margin-top: -285px;\n    left: 50%;\n    margin-left: -300px; }\n    #main-wrapper .page-wrapper #logo {\n      width: 400px;\n      position: relative;\n      margin: auto;\n      padding-top: 50px; }\n    #main-wrapper .page-wrapper .text {\n      font-size: 18px;\n      text-align: center;\n      position: relative; }\n      #main-wrapper .page-wrapper .text .title {\n        font-size: 28px; }\n\n.button {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  border-radius: 0;\n  border-style: solid;\n  border-width: 0;\n  cursor: pointer;\n  font-family: \"Helvetica Neue\", \"Helvetica\", Helvetica, Arial, sans-serif !important;\n  font-weight: normal;\n  line-height: normal;\n  margin: 0 0 1.11111rem;\n  position: relative;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  padding: 0.88889rem 1.77778rem 0.94444rem 1.77778rem;\n  font-size: 0.88889rem;\n  background-color: #008CBA;\n  border-color: #007095;\n  color: #FFFFFF;\n  transition: background-color 300ms ease-out; }\n\n.item {\n  opacity: 0;\n  transition: all 0.5s ease; }\n  .item.show {\n    opacity: 1; }\n", ""]);
 
 // exports
 
@@ -65,6 +65,12 @@ var AppComponent = (function () {
     function AppComponent(pageScrollService, document) {
         this.pageScrollService = pageScrollService;
         this.document = document;
+        this.show1 = false;
+        this.show2 = false;
+        this.show3 = false;
+        this.show4 = false;
+        this.show5 = false;
+        this.show6 = false;
         this.barChartOptions = {
             scaleShowVerticalLines: false,
             responsive: true
@@ -89,6 +95,27 @@ var AppComponent = (function () {
             }
         };
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.show1 = true;
+        }, 100);
+        setTimeout(function () {
+            _this.show2 = true;
+        }, 500);
+        setTimeout(function () {
+            _this.show3 = true;
+        }, 700);
+        setTimeout(function () {
+            _this.show4 = true;
+        }, 2300);
+        setTimeout(function () {
+            _this.show5 = true;
+        }, 2600);
+        setTimeout(function () {
+            _this.show6 = true;
+        }, 3000);
+    };
     AppComponent.prototype.goToPage = function (page) {
         console.log(page);
         var pageScrollInstance = __WEBPACK_IMPORTED_MODULE_2_ng2_page_scroll__["c" /* PageScrollInstance */].simpleInstance(this.document, "#" + page);
