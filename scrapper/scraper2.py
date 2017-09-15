@@ -16,26 +16,26 @@ end_line = 2903 - 500 * 2
 def parser(html):
     """
     Parse the html to lines.
-    
+
     Parameters
     ----------
     html: str
      Html text to parse
-     
+
     Return
     ------
     lines: like-list
     """
     soup = BeautifulSoup(html, 'html.parser')
     results = soup.find_all('div', {'class':'result'})
-    
+
     # No se por que, pero hay algunos elementos que
     # nos son visibles y no me interesan
     if len(results) > 6:
         results = results[:6]
     else:
         return
-    
+
     lines = []
     for result in results:
         ul_general = result.find('ul')
@@ -44,7 +44,7 @@ def parser(html):
         for cnt_li, li_general in enumerate(ul_general.find_all('li', recursive=False)):
             # Text
             text = ' '.join(li_general.text.split())
-            
+
             # Find the key
             key = li_general.find('span').text
             key = ' '.join(key.split()).replace(':', '')
@@ -75,35 +75,35 @@ def parser(html):
             letrados = []
             if key == 'Carátula':
                 div = li_general.find_all('div', {'class': 'resalta'})
-                caratula_type = [''.join(s.text.replace(':', '').split()) 
+                caratula_type = [''.join(s.text.replace(':', '').split())
                                  for s in div]
-                caratula_type = [s for s in caratula_type 
+                caratula_type = [s for s in caratula_type
                                  if s in sub_caratula]
-                
+
                 uls_sub = li_general.find_all('ul')
                 for cnt, ul_sub in enumerate(uls_sub):
 
                     for li_sub in ul_sub.find_all('li'):
                         text_sub = ' '.join(li_sub.text.split())
-                        
+
                         # if text_sub endswith ' CERRAR', remove it
                         if text_sub.endswith(' CERRAR'):
                             text_sub = text_sub[:-7]
-                        
+
                         if 'VER LETRADOS Letrados' in text_sub:
                             persona, letrado = text_sub.split('VER LETRADOS Letrados')
                         else:
                             persona = text_sub
                             letrado = ''
-                        
-                        letrado = [' '.join(name.text.split()) for name in 
+
+                        letrado = [' '.join(name.text.split()) for name in
                                    li_sub.find_all('div', {'class': 'item'})]
-                        
+
                         letrado = [' '.join(let.split()) for let in letrado]
                         letrado = [let.replace(',', ' ') for let in letrado]
                         letrado = [let.replace('.', '') for let in letrado]
                         letrado = [unidecode(let).upper() for let in letrado]
-                        
+
                         involucrados.append(persona)
                         involucrados_tipo.append(caratula_type[cnt])
                         letrados.append(letrado)
@@ -114,7 +114,7 @@ def parser(html):
                 involucrados = [invo.replace('.', '') for invo in involucrados]
                 involucrados = [invo.replace(',', '') for invo in involucrados]
                 involucrados = [unidecode(invo).upper() for invo in involucrados]
-                
+
                 # Append to data
                 data['involucrados'] = involucrados
                 data['involucrados_tipo'] = involucrados_tipo
@@ -131,7 +131,7 @@ def parser(html):
                     else:
                         resoluciones_sala.append(link.text)
                         resoluciones_link.append(link.attrs['href'])
-            
+
                 data['resoluciones_sala'] = resoluciones_sala
                 data['resoluciones_link'] = resoluciones_link
 
@@ -147,10 +147,10 @@ def parser(html):
                     sala = items.find('div', {'class': 't2a'}).text
                     fiscal = items.find('div', {'class': 't3a'})
                     fiscalia = items.find('div', {'class': 't2a'})
-                    
+
                     # Remove white space
                     fecha = ' '.join(fecha.split())
-                    
+
                     # Algunos fiscales o fiscalias no estan
                     if fiscal:
                         fiscal = fiscal.text.replace('Fiscal: ', '')
@@ -161,25 +161,25 @@ def parser(html):
                         radicacion_fiscalia.append(fiscalia.text)
                     else:
                         radicacion_fiscalia.append('')
-                    
+
                     radicacion_fecha.append(fecha)
                     radicacion_sala.append(sala)
-                        
+
                 data['radicacion_fecha'] = radicacion_fecha
                 data['radicacion_sala'] = radicacion_sala
                 data['radicacion_fiscal'] = radicacion_fiscal
                 data['radicacion_fiscalia'] = radicacion_fiscalia
-                
+
             if key == 'Carátula':
                 text, rest = text.split(' VER INTERVINIENTES')
 
             data[key] = text
-        
+
         # Some data miss some keys
         for key in valid_keys:
             if key not in data.keys():
                 data[key] = ''
-        
+
         #
         lines.append(data)
 
@@ -221,7 +221,7 @@ valid_keys = ['Fecha de Asignación', 'Expediente', 'Tipo', 'Motivo Asignación'
 # Words to replace
 replaces_words = ['VER MÁS', 'VER MENOS', 'CERRAR']
 # Sub categories
-sub_caratula = ['DENUNCIADO', 'DENUNCIADOS', 'DENUNCIANTE', 'DENUNCIANTES', 
+sub_caratula = ['DENUNCIADO', 'DENUNCIADOS', 'DENUNCIANTE', 'DENUNCIANTES',
                 'QUERELLANTE', 'QUERELLANTES', 'IMPUTADO', 'IMPUTADOS',
                 'PROCESADOS', 'PROCESADO', 'DEMANDADO', 'DEMANDADOS']
 # Base url to make the gets
@@ -260,7 +260,7 @@ valid_keys = ['Fecha de Asignación', 'Expediente', 'Tipo', 'Motivo Asignación'
 # Words to replace
 replaces_words = ['VER MÁS', 'VER MENOS', 'CERRAR']
 # Sub categories
-sub_caratula = ['DENUNCIADO', 'DENUNCIADOS', 'DENUNCIANTE', 'DENUNCIANTES', 
+sub_caratula = ['DENUNCIADO', 'DENUNCIADOS', 'DENUNCIANTE', 'DENUNCIANTES',
                 'QUERELLANTE', 'QUERELLANTES', 'IMPUTADO', 'IMPUTADOS',
                 'PROCESADOS', 'PROCESADO', 'DEMANDADO', 'DEMANDADOS']
 # Path to save the CSV
@@ -269,7 +269,7 @@ base_dir = '../data-sorteos/'
 # Create the output directory
 if not os.path.isdir(base_dir):
     os.mkdir(base_dir)
-    
+
 # Output file
 file_sorteos = open(base_dir + 'sorteos' + str(start_line) + '-' + str(end_line) + '.csv', 'a')
 
@@ -292,6 +292,10 @@ print("Comenzando el scraping ...")
 print("Retomando de la ", request_count)
 
 while True:
+    if end_line < request_count:
+        print("\nScraping terminado")
+        break
+
     # Progress text
     text_progress = "\rDescargando pagina: {0}. Casusas bajadas: {1}"
     print(text_progress.format(request_count, causas_count), end='')
@@ -302,20 +306,16 @@ while True:
     lines = parser(response.text)
 
     if not lines:
-        if request_count < end_lineo: 
-            print("\nSaltando la linea ")
-            request_count += 1
-            continue
-        else:
-            print("\nScraping terminado")
-            break
+        print("\nSaltando la linea ")
+        request_count += 1
+        continue
 
     # Save to CSVs
     for line in lines:
         # Causas file
         partial = [line[key] for key in valid_keys]
         file_sorteos.write(line_sorteos.format(*partial))
-            
+
     request_count += 1
     causas_count += len(lines)
 
