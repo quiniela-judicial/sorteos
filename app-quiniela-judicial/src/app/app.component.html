@@ -1,16 +1,31 @@
 <!--The whole content below can be removed with the new code.-->
 <div style="text-align:center" id="main-wrapper">
-  <div class="btn-nav-1" (click)="goToPage('page-1')"  (pageScrollFinish)="doSmth($event)"> INTRO</div>
-  <div class="btn-nav-2" (click)="goToPage('page-2')"  (pageScrollFinish)="doSmth($event)"> RESULTADOS</div>
-  <div class="page" id="page-1"> </div>
+  <div class="page" id="page-1">
+    <div class="page-wrapper">
+      <div id="logo"><img src="assets/images/quiniela-judicial.svg" style="width: 100%;"></div>
+        <div class="text">
+          <p class="title">
+            <b>¿Sabías que …</b>
+          </p>
+          <p>
+           <b> las causas judiciales se adjudican a los jueces por sorteo?</b>
+          </p>
+          <p>
+            Esto implica que la distribución de causas en jueces debería ser uniforme. ¿Es realmente así? ¿Cambia la distribución cuando hay distintos partidos políticos en el poder? ¿Y cuando se trata de causas de corrupción?
+          </p>
+          <p>
+            Ahora podemos saberlo, utilizando los datos de los sorteos de causas que publicó el Centro de Información Judicial (<a href="www.cij.gov.ar" target="_new">www.cij.gov.ar</a>). <br><br><br><a class="btn-nav-2 button" (click)="goToPage('page-2')"  (pageScrollFinish)="doSmth($event)">Acá están los resultados preliminares</a>
+          </p>
+        </div>
+    </div>
+  </div>
   <div class="page" id="page-2">
-    <canvas baseChart
-    [datasets]="lineChartData"
-    [labels]="lineChartLabels"
-    [options]="lineChartOptions"
-    [colors]="lineChartColors"
-    [legend]="lineChartLegend"
-    [chartType]="lineChartType"
-    (chartHover)="chartHovered($event)"
-    (chartClick)="chartClicked($event)"></canvas>
+  <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
 </div>
