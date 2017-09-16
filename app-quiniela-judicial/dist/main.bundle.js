@@ -16,7 +16,7 @@ webpackEmptyContext.id = "../../../../../src async recursive";
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The whole content below can be removed with the new code.-->\n<div style=\"text-align:center\" id=\"main-wrapper\">\n  <div class=\"page\" id=\"page-1\">\n    <div class=\"page-wrapper\">\n      <div id=\"logo\" class='item' [ngClass]=\"{'show': show1}\"><img src=\"assets/images/quiniela-judicial.svg\" style=\"width: 100%;\"></div>\n        <div class=\"text \">\n          <p class=\"title item\" [ngClass]=\"{'show': show2}\">\n            <b>¿Sabías que …</b>\n          </p>\n          <p class=\"item\" [ngClass]=\"{'show': show3}\">\n           <b> las causas judiciales se adjudican a los jueces por sorteo?</b>\n          </p>\n          <p class=\"item\" [ngClass]=\"{'show': show4}\">\n            Esto implica que la distribución de causas en jueces debería ser uniforme. ¿Es realmente así? ¿Cambia la distribución cuando hay distintos partidos políticos en el poder? ¿Y cuando se trata de causas de corrupción?\n          </p>\n          <p class=\"item\" [ngClass]=\"{'show': show5}\">\n            Ahora podemos saberlo, utilizando los datos de los sorteos de causas que publicó el Centro de Información Judicial (<a href=\"www.cij.gov.ar\" target=\"_new\">www.cij.gov.ar</a>). <br><br><br><a class=\"btn-nav-2 button item\" (click)=\"goToPage('page-2')\"  (pageScrollFinish)=\"doSmth($event)\" [ngClass]=\"{'show': show6}\">Acá están los resultados preliminares</a>\n          </p>\n        </div>\n    </div>\n  </div>\n  <div class=\"page\" id=\"page-2\">\n  <canvas baseChart\n          [datasets]=\"barChartData\"\n          [labels]=\"barChartLabels\"\n          [options]=\"barChartOptions\"\n          [legend]=\"barChartLegend\"\n          [chartType]=\"barChartType\"\n          (chartHover)=\"chartHovered($event)\"\n          (chartClick)=\"chartClicked($event)\"></canvas>\n</div>\n"
+module.exports = "<div id=\"main-wrapper\">\n  <div class=\"page\" id=\"page-1\">\n    <div class=\"page-wrapper\">\n      <div id=\"logo\" class='item' [ngClass]=\"{ 'show': show1 }\">\n        <img src=\"assets/images/quiniela-judicial.svg\" style=\"width: 100%;\">\n      </div>\n      <div class=\"text\">\n        <p class=\"title item text-item\" [ngClass]=\"{ 'show': show2 }\">\n          <b>¿Sabías que …</b>\n        </p>\n        <p class=\"item sub-title text-item\" [ngClass]=\"{ 'show' : show3 }\">\n         <b>las causas judiciales se adjudican a los jueces por sorteo?</b>\n        </p>\n        <p class=\"item text-item\" [ngClass]=\"{ 'show': show4 }\">\n          Esto implica que la distribución de causas en jueces debería ser uniforme. ¿Es realmente así? ¿Cambia la distribución cuando hay distintos partidos políticos en el poder? ¿Y cuando se trata de causas de corrupción?\n        </p>\n        <p class=\"item text-item\" [ngClass]=\"{ 'show': show5 }\">\n          Ahora podemos saberlo, utilizando los datos de los sorteos de causas que publicó el Centro de Información Judicial (<a href=\"http://www.cij.gov.ar\" target=\"_new\">www.cij.gov.ar</a>). <br><br><br><a class=\"btn-nav-2 button item text-item grow\" pageScroll  (pageScrollFinish)=\"doSmth($event)\" href=\"#page-2\" [ngClass]=\"{ 'show': show6 }\">Acá están los resultados preliminares</a>\n        </p>\n      </div>\n    </div>\n  </div>\n  <div class=\"page\" id=\"page-2\" >\n    <div *ngFor=\"let court of courts;\" class='graphic item' [ngClass]=\"{ 'show': court.show }\" (click)=\"openDialog(court)\">\n      <div class=\"name\">{{court.name}}</div>\n      <img src=\"assets/images/grafico-{{ court.number }}.png\" style=\"width: 100%;\">\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -28,7 +28,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#main-wrapper {\n  height: calc(100vh * 2 - 50px); }\n  #main-wrapper .btn-nav-2 {\n    cursor: pointer; }\n  #main-wrapper .page {\n    height: 100vh;\n    background: #eee; }\n  #main-wrapper .page-wrapper {\n    width: 600px;\n    position: absolute;\n    margin: auto;\n    top: 50%;\n    margin-top: -285px;\n    left: 50%;\n    margin-left: -300px; }\n    #main-wrapper .page-wrapper #logo {\n      width: 400px;\n      position: relative;\n      margin: auto;\n      padding-top: 50px; }\n    #main-wrapper .page-wrapper .text {\n      font-size: 18px;\n      text-align: center;\n      position: relative; }\n      #main-wrapper .page-wrapper .text .title {\n        font-size: 28px; }\n\n.button {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  border-radius: 0;\n  border-style: solid;\n  border-width: 0;\n  cursor: pointer;\n  font-family: \"Helvetica Neue\", \"Helvetica\", Helvetica, Arial, sans-serif !important;\n  font-weight: normal;\n  line-height: normal;\n  margin: 0 0 1.11111rem;\n  position: relative;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  padding: 0.88889rem 1.77778rem 0.94444rem 1.77778rem;\n  font-size: 0.88889rem;\n  background-color: #008CBA;\n  border-color: #007095;\n  color: #FFFFFF;\n  transition: background-color 300ms ease-out; }\n\n.item {\n  opacity: 0;\n  transition: all 0.5s ease; }\n  .item.show {\n    opacity: 1; }\n", ""]);
+exports.push([module.i, "#main-wrapper {\n  height: calc(100vh * 2 - 50px); }\n  #main-wrapper .page {\n    height: 100vh;\n    position: relative;\n    background: rgba(255, 64, 129, 0.2); }\n  #main-wrapper .page-wrapper {\n    width: 600px;\n    position: absolute;\n    margin: auto;\n    top: 50%;\n    margin-top: -285px;\n    left: 50%;\n    margin-left: -450px;\n    background-color: rgba(255, 247, 247, 0.8);\n    padding: 0px 150px;\n    border-radius: 2px;\n    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n    @media (max-width: 850px) {\n      #main-wrapper .page-wrapper {\n        width: 100%;\n        width: 100%;\n        left: 0px;\n        margin-left: 0px;\n        padding: 0px; } }\n    #main-wrapper .page-wrapper .text-item {\n      position: relative;\n      top: -5px; }\n    #main-wrapper .page-wrapper #logo {\n      width: 400px;\n      position: relative;\n      margin: auto;\n      padding-top: 50px; }\n    #main-wrapper .page-wrapper .text {\n      font-size: 16px;\n      text-align: center;\n      position: relative; }\n      #main-wrapper .page-wrapper .text .title {\n        font-size: 36px;\n        color: #f56578; }\n      #main-wrapper .page-wrapper .text .sub-title {\n        font-size: 22px;\n        color: #f56578; }\n  #main-wrapper #page-2 .graphic {\n    width: calc(23% - 2px);\n    padding: 0.5%;\n    margin: 0.5%;\n    float: left;\n    border-radius: 2px;\n    text-align: center;\n    background-color: rgba(255, 247, 247, 0.8);\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }\n    #main-wrapper #page-2 .graphic:hover {\n      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);\n      cursor: pointer; }\n    @media (max-width: 850px) {\n      #main-wrapper #page-2 .graphic {\n        width: 100%; } }\n\n.item {\n  opacity: 0;\n  transition: all 0.5s ease; }\n  .item.show {\n    -webkit-transform: translateY(5px);\n            transform: translateY(5px);\n    opacity: 1; }\n\n.button {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  border-radius: 0;\n  border-style: solid;\n  border-width: 0;\n  cursor: pointer;\n  font-family: \"Helvetica Neue\", \"Helvetica\", Helvetica, Arial, sans-serif !important;\n  font-weight: normal;\n  line-height: normal;\n  margin: 0 0 1.11111rem;\n  position: relative;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  padding: 0.88889rem 1.77778rem 0.94444rem 1.77778rem;\n  font-size: 0.88889rem;\n  background-color: #ff6179;\n  border-color: #007095;\n  color: #FFFFFF;\n  font-weight: bold; }\n\n.grow:hover {\n  transition: all .2s ease-in-out;\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1); }\n", ""]);
 
 // exports
 
@@ -43,9 +43,11 @@ module.exports = module.exports.toString();
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_page_scroll__ = __webpack_require__("../../../../ng2-page-scroll/ng2-page-scroll.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng2_page_scroll__ = __webpack_require__("../../../../ng2-page-scroll/ng2-page-scroll.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return DialogOverviewExampleDialog; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,28 +63,46 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 
 
+
 var AppComponent = (function () {
-    function AppComponent(pageScrollService, document) {
+    function AppComponent(pageScrollService, document, dialog) {
         this.pageScrollService = pageScrollService;
         this.document = document;
+        this.dialog = dialog;
         this.show1 = false;
         this.show2 = false;
         this.show3 = false;
         this.show4 = false;
         this.show5 = false;
         this.show6 = false;
-        this.barChartOptions = {
-            scaleShowVerticalLines: false,
-            responsive: true
-        };
-        this.barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-        this.barChartType = 'bar';
-        this.barChartLegend = true;
-        this.barChartData = [
-            { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-            { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
+        this.courts = [
+            { show: false, name: 'Juzgado 1', number: 1 },
+            { show: false, name: 'Juzgado 2', number: 2 },
+            { show: false, name: 'Juzgado 3', number: 3 },
+            { show: false, name: 'Juzgado 4', number: 4 },
+            { show: false, name: 'Juzgado 5', number: 5 },
+            { show: false, name: 'Juzgado 6', number: 6 },
+            { show: false, name: 'Juzgado 7', number: 7 },
+            { show: false, name: 'Juzgado 8', number: 8 },
+            { show: false, name: 'Juzgado 9', number: 9 },
+            { show: false, name: 'Juzgado 10', number: 10 },
+            { show: false, name: 'Juzgado 11', number: 11 },
+            { show: false, name: 'Juzgado 12', number: 12 },
         ];
-        __WEBPACK_IMPORTED_MODULE_2_ng2_page_scroll__["b" /* PageScrollConfig */].defaultEasingLogic = {
+        this.initScroll();
+    }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.goToHome();
+        setTimeout(function () { return _this.show1 = true; }, 200);
+        setTimeout(function () { return _this.show2 = true; }, 400);
+        setTimeout(function () { return _this.show3 = true; }, 600);
+        setTimeout(function () { return _this.show4 = true; }, 800);
+        setTimeout(function () { return _this.show5 = true; }, 1000);
+        setTimeout(function () { return _this.show6 = true; }, 1200);
+    };
+    AppComponent.prototype.initScroll = function () {
+        __WEBPACK_IMPORTED_MODULE_1_ng2_page_scroll__["b" /* PageScrollConfig */].defaultEasingLogic = {
             ease: function (t, b, c, d) {
                 // easeInOutExpo easing
                 if (t === 0)
@@ -94,87 +114,56 @@ var AppComponent = (function () {
                 return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
             }
         };
-    }
-    AppComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.show1 = true;
-        }, 100);
-        setTimeout(function () {
-            _this.show2 = true;
-        }, 500);
-        setTimeout(function () {
-            _this.show3 = true;
-        }, 700);
-        setTimeout(function () {
-            _this.show4 = true;
-        }, 2300);
-        setTimeout(function () {
-            _this.show5 = true;
-        }, 2600);
-        setTimeout(function () {
-            _this.show6 = true;
-        }, 3000);
     };
-    AppComponent.prototype.goToPage = function (page) {
-        console.log(page);
-        var pageScrollInstance = __WEBPACK_IMPORTED_MODULE_2_ng2_page_scroll__["c" /* PageScrollInstance */].simpleInstance(this.document, "#" + page);
+    AppComponent.prototype.goToHome = function () {
+        var pageScrollInstance = __WEBPACK_IMPORTED_MODULE_1_ng2_page_scroll__["c" /* PageScrollInstance */].simpleInstance(this.document, "#page-1");
         this.pageScrollService.start(pageScrollInstance);
     };
     AppComponent.prototype.doSmth = function (reachedTarget) {
-        console.log(reachedTarget);
         if (reachedTarget) {
-            console.log('Yeah, we reached our destination');
+            this.courts.forEach(function (court, index) {
+                var time = index * 150;
+                setTimeout(function () { return court.show = true; }, time);
+            });
         }
-        else {
-            console.log('Ohoh, something interrupted us');
-        }
     };
-    // events
-    AppComponent.prototype.chartClicked = function (e) {
-        console.log(e);
-    };
-    AppComponent.prototype.chartHovered = function (e) {
-        console.log(e);
-    };
-    AppComponent.prototype.randomize = function () {
-        // Only Change 3 values
-        var data = [
-            Math.round(Math.random() * 100),
-            59,
-            80,
-            (Math.random() * 100),
-            56,
-            (Math.random() * 100),
-            40
-        ];
-        var clone = JSON.parse(JSON.stringify(this.barChartData));
-        clone[0].data = data;
-        this.barChartData = clone;
-        /**
-         * (My guess), for Angular to recognize the change in the dataset
-         * it has to change the dataset variable directly,
-         * so one way around it, is to clone the data, change it and then
-         * assign it;
-         */
+    AppComponent.prototype.openDialog = function (court) {
+        var dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+            data: { court: court }
+        });
     };
     return AppComponent;
 }());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('container'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _a || Object)
-], AppComponent.prototype, "container", void 0);
 AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/app.component.scss")],
+        styles: [__webpack_require__("../../../../../src/app/app.component.scss")]
     }),
-    __param(1, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* DOCUMENT */])),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_page_scroll__["d" /* PageScrollService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_page_scroll__["d" /* PageScrollService */]) === "function" && _b || Object, Object])
+    __param(1, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* Inject */])(__WEBPACK_IMPORTED_MODULE_3__angular_common__["b" /* DOCUMENT */])),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ng2_page_scroll__["d" /* PageScrollService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ng2_page_scroll__["d" /* PageScrollService */]) === "function" && _a || Object, Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MdDialog */]) === "function" && _b || Object])
 ], AppComponent);
 
-var _a, _b;
+var DialogOverviewExampleDialog = (function () {
+    function DialogOverviewExampleDialog(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    DialogOverviewExampleDialog.prototype.onNoClick = function () {
+        this.dialogRef.close();
+    };
+    return DialogOverviewExampleDialog;
+}());
+DialogOverviewExampleDialog = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Component */])({
+        selector: 'dialog-overview-example-dialog',
+        template: "\n    <div>\n      <div style=\"font-weight: bold;text-align: center;font-size: 24px;\">{{data.court.name}}</div>\n      <img src=\"assets/images/grafico-{{data.court.number}}.png\" style=\"width: 100%;\">\n    </div>\n  ",
+    }),
+    __param(1, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["f" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MD_DIALOG_DATA */])),
+    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["d" /* MdDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["d" /* MdDialogRef */]) === "function" && _c || Object, Object])
+], DialogOverviewExampleDialog);
+
+var _a, _b, _c;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -185,10 +174,10 @@ var _a, _b;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_page_scroll__ = __webpack_require__("../../../../ng2-page-scroll/ng2-page-scroll.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_charts__ = __webpack_require__("../../../../ng2-charts/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_charts__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_page_scroll__ = __webpack_require__("../../../../ng2-page-scroll/ng2-page-scroll.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -201,23 +190,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = (function () {
     function AppModule() {
     }
     return AppModule;
 }());
 AppModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]
+            __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_2__app_component__["b" /* DialogOverviewExampleDialog */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_4_ng2_charts__["ChartsModule"],
-            __WEBPACK_IMPORTED_MODULE_2_ng2_page_scroll__["a" /* Ng2PageScrollModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_4_ng2_page_scroll__["a" /* Ng2PageScrollModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["a" /* MdDialogModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+        ],
+        entryComponents: [
+            __WEBPACK_IMPORTED_MODULE_2__app_component__["b" /* DialogOverviewExampleDialog */],
         ],
         providers: [],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -251,263 +246,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
-
-/***/ }),
-
-/***/ "../../../../moment/locale recursive ^\\.\\/.*$":
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./af": "../../../../moment/locale/af.js",
-	"./af.js": "../../../../moment/locale/af.js",
-	"./ar": "../../../../moment/locale/ar.js",
-	"./ar-dz": "../../../../moment/locale/ar-dz.js",
-	"./ar-dz.js": "../../../../moment/locale/ar-dz.js",
-	"./ar-kw": "../../../../moment/locale/ar-kw.js",
-	"./ar-kw.js": "../../../../moment/locale/ar-kw.js",
-	"./ar-ly": "../../../../moment/locale/ar-ly.js",
-	"./ar-ly.js": "../../../../moment/locale/ar-ly.js",
-	"./ar-ma": "../../../../moment/locale/ar-ma.js",
-	"./ar-ma.js": "../../../../moment/locale/ar-ma.js",
-	"./ar-sa": "../../../../moment/locale/ar-sa.js",
-	"./ar-sa.js": "../../../../moment/locale/ar-sa.js",
-	"./ar-tn": "../../../../moment/locale/ar-tn.js",
-	"./ar-tn.js": "../../../../moment/locale/ar-tn.js",
-	"./ar.js": "../../../../moment/locale/ar.js",
-	"./az": "../../../../moment/locale/az.js",
-	"./az.js": "../../../../moment/locale/az.js",
-	"./be": "../../../../moment/locale/be.js",
-	"./be.js": "../../../../moment/locale/be.js",
-	"./bg": "../../../../moment/locale/bg.js",
-	"./bg.js": "../../../../moment/locale/bg.js",
-	"./bn": "../../../../moment/locale/bn.js",
-	"./bn.js": "../../../../moment/locale/bn.js",
-	"./bo": "../../../../moment/locale/bo.js",
-	"./bo.js": "../../../../moment/locale/bo.js",
-	"./br": "../../../../moment/locale/br.js",
-	"./br.js": "../../../../moment/locale/br.js",
-	"./bs": "../../../../moment/locale/bs.js",
-	"./bs.js": "../../../../moment/locale/bs.js",
-	"./ca": "../../../../moment/locale/ca.js",
-	"./ca.js": "../../../../moment/locale/ca.js",
-	"./cs": "../../../../moment/locale/cs.js",
-	"./cs.js": "../../../../moment/locale/cs.js",
-	"./cv": "../../../../moment/locale/cv.js",
-	"./cv.js": "../../../../moment/locale/cv.js",
-	"./cy": "../../../../moment/locale/cy.js",
-	"./cy.js": "../../../../moment/locale/cy.js",
-	"./da": "../../../../moment/locale/da.js",
-	"./da.js": "../../../../moment/locale/da.js",
-	"./de": "../../../../moment/locale/de.js",
-	"./de-at": "../../../../moment/locale/de-at.js",
-	"./de-at.js": "../../../../moment/locale/de-at.js",
-	"./de-ch": "../../../../moment/locale/de-ch.js",
-	"./de-ch.js": "../../../../moment/locale/de-ch.js",
-	"./de.js": "../../../../moment/locale/de.js",
-	"./dv": "../../../../moment/locale/dv.js",
-	"./dv.js": "../../../../moment/locale/dv.js",
-	"./el": "../../../../moment/locale/el.js",
-	"./el.js": "../../../../moment/locale/el.js",
-	"./en-au": "../../../../moment/locale/en-au.js",
-	"./en-au.js": "../../../../moment/locale/en-au.js",
-	"./en-ca": "../../../../moment/locale/en-ca.js",
-	"./en-ca.js": "../../../../moment/locale/en-ca.js",
-	"./en-gb": "../../../../moment/locale/en-gb.js",
-	"./en-gb.js": "../../../../moment/locale/en-gb.js",
-	"./en-ie": "../../../../moment/locale/en-ie.js",
-	"./en-ie.js": "../../../../moment/locale/en-ie.js",
-	"./en-nz": "../../../../moment/locale/en-nz.js",
-	"./en-nz.js": "../../../../moment/locale/en-nz.js",
-	"./eo": "../../../../moment/locale/eo.js",
-	"./eo.js": "../../../../moment/locale/eo.js",
-	"./es": "../../../../moment/locale/es.js",
-	"./es-do": "../../../../moment/locale/es-do.js",
-	"./es-do.js": "../../../../moment/locale/es-do.js",
-	"./es.js": "../../../../moment/locale/es.js",
-	"./et": "../../../../moment/locale/et.js",
-	"./et.js": "../../../../moment/locale/et.js",
-	"./eu": "../../../../moment/locale/eu.js",
-	"./eu.js": "../../../../moment/locale/eu.js",
-	"./fa": "../../../../moment/locale/fa.js",
-	"./fa.js": "../../../../moment/locale/fa.js",
-	"./fi": "../../../../moment/locale/fi.js",
-	"./fi.js": "../../../../moment/locale/fi.js",
-	"./fo": "../../../../moment/locale/fo.js",
-	"./fo.js": "../../../../moment/locale/fo.js",
-	"./fr": "../../../../moment/locale/fr.js",
-	"./fr-ca": "../../../../moment/locale/fr-ca.js",
-	"./fr-ca.js": "../../../../moment/locale/fr-ca.js",
-	"./fr-ch": "../../../../moment/locale/fr-ch.js",
-	"./fr-ch.js": "../../../../moment/locale/fr-ch.js",
-	"./fr.js": "../../../../moment/locale/fr.js",
-	"./fy": "../../../../moment/locale/fy.js",
-	"./fy.js": "../../../../moment/locale/fy.js",
-	"./gd": "../../../../moment/locale/gd.js",
-	"./gd.js": "../../../../moment/locale/gd.js",
-	"./gl": "../../../../moment/locale/gl.js",
-	"./gl.js": "../../../../moment/locale/gl.js",
-	"./gom-latn": "../../../../moment/locale/gom-latn.js",
-	"./gom-latn.js": "../../../../moment/locale/gom-latn.js",
-	"./he": "../../../../moment/locale/he.js",
-	"./he.js": "../../../../moment/locale/he.js",
-	"./hi": "../../../../moment/locale/hi.js",
-	"./hi.js": "../../../../moment/locale/hi.js",
-	"./hr": "../../../../moment/locale/hr.js",
-	"./hr.js": "../../../../moment/locale/hr.js",
-	"./hu": "../../../../moment/locale/hu.js",
-	"./hu.js": "../../../../moment/locale/hu.js",
-	"./hy-am": "../../../../moment/locale/hy-am.js",
-	"./hy-am.js": "../../../../moment/locale/hy-am.js",
-	"./id": "../../../../moment/locale/id.js",
-	"./id.js": "../../../../moment/locale/id.js",
-	"./is": "../../../../moment/locale/is.js",
-	"./is.js": "../../../../moment/locale/is.js",
-	"./it": "../../../../moment/locale/it.js",
-	"./it.js": "../../../../moment/locale/it.js",
-	"./ja": "../../../../moment/locale/ja.js",
-	"./ja.js": "../../../../moment/locale/ja.js",
-	"./jv": "../../../../moment/locale/jv.js",
-	"./jv.js": "../../../../moment/locale/jv.js",
-	"./ka": "../../../../moment/locale/ka.js",
-	"./ka.js": "../../../../moment/locale/ka.js",
-	"./kk": "../../../../moment/locale/kk.js",
-	"./kk.js": "../../../../moment/locale/kk.js",
-	"./km": "../../../../moment/locale/km.js",
-	"./km.js": "../../../../moment/locale/km.js",
-	"./kn": "../../../../moment/locale/kn.js",
-	"./kn.js": "../../../../moment/locale/kn.js",
-	"./ko": "../../../../moment/locale/ko.js",
-	"./ko.js": "../../../../moment/locale/ko.js",
-	"./ky": "../../../../moment/locale/ky.js",
-	"./ky.js": "../../../../moment/locale/ky.js",
-	"./lb": "../../../../moment/locale/lb.js",
-	"./lb.js": "../../../../moment/locale/lb.js",
-	"./lo": "../../../../moment/locale/lo.js",
-	"./lo.js": "../../../../moment/locale/lo.js",
-	"./lt": "../../../../moment/locale/lt.js",
-	"./lt.js": "../../../../moment/locale/lt.js",
-	"./lv": "../../../../moment/locale/lv.js",
-	"./lv.js": "../../../../moment/locale/lv.js",
-	"./me": "../../../../moment/locale/me.js",
-	"./me.js": "../../../../moment/locale/me.js",
-	"./mi": "../../../../moment/locale/mi.js",
-	"./mi.js": "../../../../moment/locale/mi.js",
-	"./mk": "../../../../moment/locale/mk.js",
-	"./mk.js": "../../../../moment/locale/mk.js",
-	"./ml": "../../../../moment/locale/ml.js",
-	"./ml.js": "../../../../moment/locale/ml.js",
-	"./mr": "../../../../moment/locale/mr.js",
-	"./mr.js": "../../../../moment/locale/mr.js",
-	"./ms": "../../../../moment/locale/ms.js",
-	"./ms-my": "../../../../moment/locale/ms-my.js",
-	"./ms-my.js": "../../../../moment/locale/ms-my.js",
-	"./ms.js": "../../../../moment/locale/ms.js",
-	"./my": "../../../../moment/locale/my.js",
-	"./my.js": "../../../../moment/locale/my.js",
-	"./nb": "../../../../moment/locale/nb.js",
-	"./nb.js": "../../../../moment/locale/nb.js",
-	"./ne": "../../../../moment/locale/ne.js",
-	"./ne.js": "../../../../moment/locale/ne.js",
-	"./nl": "../../../../moment/locale/nl.js",
-	"./nl-be": "../../../../moment/locale/nl-be.js",
-	"./nl-be.js": "../../../../moment/locale/nl-be.js",
-	"./nl.js": "../../../../moment/locale/nl.js",
-	"./nn": "../../../../moment/locale/nn.js",
-	"./nn.js": "../../../../moment/locale/nn.js",
-	"./pa-in": "../../../../moment/locale/pa-in.js",
-	"./pa-in.js": "../../../../moment/locale/pa-in.js",
-	"./pl": "../../../../moment/locale/pl.js",
-	"./pl.js": "../../../../moment/locale/pl.js",
-	"./pt": "../../../../moment/locale/pt.js",
-	"./pt-br": "../../../../moment/locale/pt-br.js",
-	"./pt-br.js": "../../../../moment/locale/pt-br.js",
-	"./pt.js": "../../../../moment/locale/pt.js",
-	"./ro": "../../../../moment/locale/ro.js",
-	"./ro.js": "../../../../moment/locale/ro.js",
-	"./ru": "../../../../moment/locale/ru.js",
-	"./ru.js": "../../../../moment/locale/ru.js",
-	"./sd": "../../../../moment/locale/sd.js",
-	"./sd.js": "../../../../moment/locale/sd.js",
-	"./se": "../../../../moment/locale/se.js",
-	"./se.js": "../../../../moment/locale/se.js",
-	"./si": "../../../../moment/locale/si.js",
-	"./si.js": "../../../../moment/locale/si.js",
-	"./sk": "../../../../moment/locale/sk.js",
-	"./sk.js": "../../../../moment/locale/sk.js",
-	"./sl": "../../../../moment/locale/sl.js",
-	"./sl.js": "../../../../moment/locale/sl.js",
-	"./sq": "../../../../moment/locale/sq.js",
-	"./sq.js": "../../../../moment/locale/sq.js",
-	"./sr": "../../../../moment/locale/sr.js",
-	"./sr-cyrl": "../../../../moment/locale/sr-cyrl.js",
-	"./sr-cyrl.js": "../../../../moment/locale/sr-cyrl.js",
-	"./sr.js": "../../../../moment/locale/sr.js",
-	"./ss": "../../../../moment/locale/ss.js",
-	"./ss.js": "../../../../moment/locale/ss.js",
-	"./sv": "../../../../moment/locale/sv.js",
-	"./sv.js": "../../../../moment/locale/sv.js",
-	"./sw": "../../../../moment/locale/sw.js",
-	"./sw.js": "../../../../moment/locale/sw.js",
-	"./ta": "../../../../moment/locale/ta.js",
-	"./ta.js": "../../../../moment/locale/ta.js",
-	"./te": "../../../../moment/locale/te.js",
-	"./te.js": "../../../../moment/locale/te.js",
-	"./tet": "../../../../moment/locale/tet.js",
-	"./tet.js": "../../../../moment/locale/tet.js",
-	"./th": "../../../../moment/locale/th.js",
-	"./th.js": "../../../../moment/locale/th.js",
-	"./tl-ph": "../../../../moment/locale/tl-ph.js",
-	"./tl-ph.js": "../../../../moment/locale/tl-ph.js",
-	"./tlh": "../../../../moment/locale/tlh.js",
-	"./tlh.js": "../../../../moment/locale/tlh.js",
-	"./tr": "../../../../moment/locale/tr.js",
-	"./tr.js": "../../../../moment/locale/tr.js",
-	"./tzl": "../../../../moment/locale/tzl.js",
-	"./tzl.js": "../../../../moment/locale/tzl.js",
-	"./tzm": "../../../../moment/locale/tzm.js",
-	"./tzm-latn": "../../../../moment/locale/tzm-latn.js",
-	"./tzm-latn.js": "../../../../moment/locale/tzm-latn.js",
-	"./tzm.js": "../../../../moment/locale/tzm.js",
-	"./uk": "../../../../moment/locale/uk.js",
-	"./uk.js": "../../../../moment/locale/uk.js",
-	"./ur": "../../../../moment/locale/ur.js",
-	"./ur.js": "../../../../moment/locale/ur.js",
-	"./uz": "../../../../moment/locale/uz.js",
-	"./uz-latn": "../../../../moment/locale/uz-latn.js",
-	"./uz-latn.js": "../../../../moment/locale/uz-latn.js",
-	"./uz.js": "../../../../moment/locale/uz.js",
-	"./vi": "../../../../moment/locale/vi.js",
-	"./vi.js": "../../../../moment/locale/vi.js",
-	"./x-pseudo": "../../../../moment/locale/x-pseudo.js",
-	"./x-pseudo.js": "../../../../moment/locale/x-pseudo.js",
-	"./yo": "../../../../moment/locale/yo.js",
-	"./yo.js": "../../../../moment/locale/yo.js",
-	"./zh-cn": "../../../../moment/locale/zh-cn.js",
-	"./zh-cn.js": "../../../../moment/locale/zh-cn.js",
-	"./zh-hk": "../../../../moment/locale/zh-hk.js",
-	"./zh-hk.js": "../../../../moment/locale/zh-hk.js",
-	"./zh-tw": "../../../../moment/locale/zh-tw.js",
-	"./zh-tw.js": "../../../../moment/locale/zh-tw.js"
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number or string
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "../../../../moment/locale recursive ^\\.\\/.*$";
 
 /***/ }),
 

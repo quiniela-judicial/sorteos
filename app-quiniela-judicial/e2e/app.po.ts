@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class QuinielaJudicialPage {
+export class AppQuinielaJudicialPage {
   navigateTo() {
     return browser.get('/');
   }

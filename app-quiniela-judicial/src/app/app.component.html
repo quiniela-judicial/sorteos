@@ -1,31 +1,29 @@
-<!--The whole content below can be removed with the new code.-->
-<div style="text-align:center" id="main-wrapper">
+<div id="main-wrapper">
   <div class="page" id="page-1">
     <div class="page-wrapper">
-      <div id="logo" class='item' [ngClass]="{'show': show1}"><img src="assets/images/quiniela-judicial.svg" style="width: 100%;"></div>
-        <div class="text ">
-          <p class="title item" [ngClass]="{'show': show2}">
-            <b>¿Sabías que …</b>
-          </p>
-          <p class="item" [ngClass]="{'show': show3}">
-           <b> las causas judiciales se adjudican a los jueces por sorteo?</b>
-          </p>
-          <p class="item" [ngClass]="{'show': show4}">
-            Esto implica que la distribución de causas en jueces debería ser uniforme. ¿Es realmente así? ¿Cambia la distribución cuando hay distintos partidos políticos en el poder? ¿Y cuando se trata de causas de corrupción?
-          </p>
-          <p class="item" [ngClass]="{'show': show5}">
-            Ahora podemos saberlo, utilizando los datos de los sorteos de causas que publicó el Centro de Información Judicial (<a href="www.cij.gov.ar" target="_new">www.cij.gov.ar</a>). <br><br><br><a class="btn-nav-2 button item" (click)="goToPage('page-2')"  (pageScrollFinish)="doSmth($event)" [ngClass]="{'show': show6}">Acá están los resultados preliminares</a>
-          </p>
-        </div>
+      <div id="logo" class='item' [ngClass]="{ 'show': show1 }">
+        <img src="assets/images/quiniela-judicial.svg" style="width: 100%;">
+      </div>
+      <div class="text">
+        <p class="title item text-item" [ngClass]="{ 'show': show2 }">
+          <b>¿Sabías que …</b>
+        </p>
+        <p class="item sub-title text-item" [ngClass]="{ 'show' : show3 }">
+         <b>las causas judiciales se adjudican a los jueces por sorteo?</b>
+        </p>
+        <p class="item text-item" [ngClass]="{ 'show': show4 }">
+          Esto implica que la distribución de causas en jueces debería ser uniforme. ¿Es realmente así? ¿Cambia la distribución cuando hay distintos partidos políticos en el poder? ¿Y cuando se trata de causas de corrupción?
+        </p>
+        <p class="item text-item" [ngClass]="{ 'show': show5 }">
+          Ahora podemos saberlo, utilizando los datos de los sorteos de causas que publicó el Centro de Información Judicial (<a href="http://www.cij.gov.ar" target="_new">www.cij.gov.ar</a>). <br><br><br><a class="btn-nav-2 button item text-item grow" pageScroll  (pageScrollFinish)="doSmth($event)" href="#page-2" [ngClass]="{ 'show': show6 }">Acá están los resultados preliminares</a>
+        </p>
+      </div>
     </div>
   </div>
-  <div class="page" id="page-2">
-  <canvas baseChart
-          [datasets]="barChartData"
-          [labels]="barChartLabels"
-          [options]="barChartOptions"
-          [legend]="barChartLegend"
-          [chartType]="barChartType"
-          (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)"></canvas>
+  <div class="page" id="page-2" >
+    <div *ngFor="let court of courts;" class='graphic item' [ngClass]="{ 'show': court.show }" (click)="openDialog(court)">
+      <div class="name">{{court.name}}</div>
+      <img src="assets/images/grafico-{{ court.number }}.png" style="width: 100%;">
+    </div>
+  </div>
 </div>

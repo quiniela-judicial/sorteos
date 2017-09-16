@@ -1,10 +1,10 @@
-import { QuinielaJudicialPage } from './app.po';
+import { AppQuinielaJudicialPage } from './app.po';
 
-describe('quiniela-judicial App', () => {
-  let page: QuinielaJudicialPage;
+describe('app-quiniela-judicial App', () => {
+  let page: AppQuinielaJudicialPage;
 
   beforeEach(() => {
-    page = new QuinielaJudicialPage();
+    page = new AppQuinielaJudicialPage();
   });
 
   it('should display welcome message', () => {
