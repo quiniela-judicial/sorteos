@@ -32,7 +32,7 @@
       width: 400px;
       position: relative;
       margin: auto;
-      padding-top: 50px;
+      padding-top: 30px;
     }
     .text{
       font-size: 16px;
@@ -104,4 +104,12 @@
     transition: all .2s ease-in-out;
     transform: scale(1.1);
   }
+}
+.img-martillo {
+  position: absolute;
+  width: 438px;
+  top: 50%;
+  left: 50%;
+  margin-left: -520px;
+  margin-top: 50px;
 }
